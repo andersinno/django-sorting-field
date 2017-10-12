@@ -1,0 +1,4 @@
+include README.rst
+include LICENSE
+
+recursive-include django_sorting_field *.css *.html *.js

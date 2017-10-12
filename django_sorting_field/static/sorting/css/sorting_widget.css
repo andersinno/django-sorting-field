@@ -1,0 +1,19 @@
+.sortable-widget-list {
+}
+
+.sortable-widget-list .sortable-widget-placeholder,
+.sortable-widget-list .sortable-widget-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: rgb(255, 255, 255);
+    background-color: #0bf;
+    border: 1px solid #0bf;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.sortable-widget-list .sortable-widget-placeholder {
+    border: 1px dashed #0bf;
+    background-color: inherit;
+}
