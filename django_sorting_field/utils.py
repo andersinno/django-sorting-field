@@ -1,5 +1,7 @@
 import json
 
+import six
+
 
 def clean_order_json(value):
         value = "[]" if value is None else value
@@ -12,7 +14,7 @@ def clean_order_json(value):
 
 def iterate_in_order(items, order):
     # In case our order is still in json format
-    if isinstance(order, basestring):
+    if isinstance(order, six.string_types):
         order = clean_order_json(order)
 
     items_by_id = {item.id: item for item in items}
