@@ -1,6 +1,6 @@
 from django.forms.widgets import Widget
-from django.utils.safestring import mark_safe
 from django.template.loader import render_to_string
+from django.utils.safestring import mark_safe
 
 
 class SortingWidget(Widget):
