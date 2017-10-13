@@ -3,7 +3,7 @@ import json
 from django import forms
 from django.utils.text import force_text
 
-from .utils import clean_order_json, iterate_in_order
+from .utils import clean_order_json, sort_by_order
 from .widgets import SortingWidget
 
 
@@ -29,7 +29,7 @@ class SortingFormField(forms.CharField):
 
     def prepare_value(self, value):
         value = clean_order_json(value)
-        return iterate_in_order(self.items, value)
+        return sort_by_order(self.items, value)
 
     def to_python(self, value):
         value = clean_order_json(value)
