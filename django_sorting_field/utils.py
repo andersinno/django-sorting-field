@@ -28,3 +28,7 @@ def iterate_in_order(items, order):
     # Return the rest
     for identifier, item in items_by_id.iteritems():
         yield item
+
+
+def sort_by_order(items, order):
+    return [item for item in iterate_in_order(items, order)]

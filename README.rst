@@ -5,6 +5,12 @@ Django Sorting Field
 * Sorting any item with a field called ``id`` is supported
 * The drag and drop feature has been implemented with `html5sortable <https://lukasoppermann.github.io/html5sortable/index.html>`_.
 
+Known limitations
+-----------------
+
+* Refreshing the items on the widget not (yet?) supported out of the box
+* No tests
+
 Example of the widget
 ---------------------
 
@@ -35,7 +41,7 @@ You also have a CMSPlugin object for the carousel.
 
 	class CarouselPlugin(CMSPlugin):
 		carousel = models.ForeignKey(Carousel, related_name="x")
-	
+
 
 	class CMSCarouselPlugin(CMSPluginBase):
 		model = CarouselPlugin
@@ -90,7 +96,7 @@ Finally, sort the items passed to the context data
 
 .. code-block:: python
 
-	from django_sorting_field.utils import iterate_in_order
+	from django_sorting_field.utils import sort_by_order
 
 		class CMSCarouselPlugin(CMSPluginBase):
 		model = CarouselPlugin
@@ -98,7 +104,7 @@ Finally, sort the items passed to the context data
 
 		def render(self, context, instance, placeholder):
 			context.update({
-				"pictures": iterate_in_order(
+				"pictures": sort_by_order(
 					self.instance.carousel.pictures.all(),
 					self.instance.carousel_order
 				),
