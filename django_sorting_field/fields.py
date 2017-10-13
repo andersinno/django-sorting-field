@@ -1,8 +1,9 @@
-from django import forms
 import json
 
+from django import forms
+
+from .utils import clean_order_json, iterate_in_order
 from .widgets import SortingWidget
-from .utils import iterate_in_order, clean_order_json
 
 
 class SortedItem(object):
