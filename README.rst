@@ -1,5 +1,9 @@
 Django Sorting Field
 ====================
+.. image:: https://travis-ci.org/andersinno/django-sorting-field.svg?branch=master
+  :target: https://travis-ci.org/andersinno/django-sorting-field
+.. image:: https://codecov.io/gh/andersinno/django-sorting-field/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/andersinno/django-sorting-field
 
 * This package implements a Django form field + widget for drag & drog sorting of items
 * Sorting any item with a field called ``id`` is supported
@@ -77,9 +81,10 @@ Add the SortingFormField to the CMS Plugin and populate it
 
 		def __init__(self, *args, **kwargs):
 			super(CarouselPluginForm, self).__init__(*args, **kwargs)
-			self.fields["carousel_order"].populate(
-				items=self.instance.carousel.pictures.all(),
-			)
+			if self.instance.pk:
+				self.fields["carousel_order"].populate(
+					items=self.instance.carousel.pictures.all(),
+				)
 
 	class CMSCarouselPlugin(CMSPluginBase):
 		model = CarouselPlugin
