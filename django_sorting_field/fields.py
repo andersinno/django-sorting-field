@@ -1,7 +1,7 @@
 import json
 
 from django import forms
-from django.utils.text import force_text
+from django.utils.encoding import force_text
 
 from .utils import clean_order_json, sort_by_order
 from .widgets import SortingWidget
