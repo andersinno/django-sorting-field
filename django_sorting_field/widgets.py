@@ -15,7 +15,7 @@ class SortingWidget(Widget):
             "sorting/js/sorting_widget.js",
         )
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         context = attrs
         context.update({
             "items": value,
